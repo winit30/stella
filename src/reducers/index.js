@@ -5,7 +5,7 @@ import appReducer from "./appReducer";
 
 const reducers = {
     appReducer,
-    formReducer
-}
+    form: formReducer
+};
 
 export default combineReducers(reducers);

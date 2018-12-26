@@ -41,7 +41,7 @@ class Main extends Component<{}> {
         // const {isLoggedin} = this.props;
         return (
             <View style={styles.appContainer}>
-                <StatusBar backgroundColor="#e0e0e0" barStyle="dark-content" />
+                <StatusBar backgroundColor="#000000" barStyle="light-content" />
                 <Routes isLoggedin={false} />
             </View>
         );

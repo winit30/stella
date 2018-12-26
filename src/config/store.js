@@ -10,12 +10,12 @@ const persistConfig = {
     storage: AsyncStorage,
     whitelist: [],
     blacklist: []
-}
+};
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 export default () => {
-    let store = createStore(persistedReducer, {}, applyMiddleware(thunk));
-    let persistor = persistStore(store);
+    const store = createStore(persistedReducer, {}, applyMiddleware(thunk));
+    const persistor = persistStore(store);
     return {store, persistor};
-}
+};
