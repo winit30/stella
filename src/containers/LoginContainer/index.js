@@ -15,7 +15,7 @@ import styles from "./styles";
 class LoginContainer extends Component<{}> {
 
     onSubmit = (values) => {
-        console.log(values)
+        console.log(values);
     }
 
     renderTextInput = (field) => {
@@ -39,7 +39,7 @@ class LoginContainer extends Component<{}> {
         return (
             <View>
                 <Field
-                    name="email"
+                    name={Config.APP_TYPE === "corporate" ? "email" : "phone"}
                     label={Config.APP_TYPE === "corporate" ? "Registered HAIS Email ID" : "Registered mooON Mobile Number"}
                     component={this.renderTextInput} />
                 <Field
@@ -62,8 +62,11 @@ class LoginContainer extends Component<{}> {
 
 const validate = (values) => {
     const errors = {};
-    if (!values.email) {
+    if (!values.email && Config.APP_TYPE === "corporate") {
         errors.email = "Email is required";
+    }
+    if (!values.phone && Config.APP_TYPE !== "corporate") {
+        errors.phone = "Phone is required";
     }
     if (!values.password) {
         errors.password = "Locality is required";
